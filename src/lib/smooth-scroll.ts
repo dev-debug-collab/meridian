@@ -1,33 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
-import Lenis from "lenis";
-
+// Smooth scrolling is now handled natively via the `scroll-smooth` class on
+// the <html> element in globals.css. Lenis was removed: its artificial
+// scroll-glide effect felt like lag on trackpads/mouse wheels compared to
+// native scrolling, and caused responsiveness issues on some mobile GPUs.
 export function useSmoothScroll() {
-  useEffect(() => {
-    // Skip Lenis entirely on touch devices — native scrolling is smoother
-    // and avoids the input-lag/freeze some mobile GPUs hit when Lenis
-    // intercepts touch events alongside heavy animated/blurred content.
-    const isTouchDevice =
-      typeof window !== "undefined" &&
-      ("ontouchstart" in window || navigator.maxTouchPoints > 0);
-
-    if (isTouchDevice) return;
-
-    const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+  // Intentionally a no-op — kept as a hook so SmoothScrollProvider doesn't
+  // need to change if you ever want to reintroduce a scroll library later.
 }
