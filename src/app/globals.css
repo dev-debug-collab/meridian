@@ -41,16 +41,16 @@ body {
 }
 
 .glass {
-  background: rgba(16, 20, 27, 0.55);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: rgba(16, 20, 27, 0.7);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-strong {
-  background: rgba(10, 13, 18, 0.75);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  background: rgba(10, 13, 18, 0.85);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -76,14 +76,8 @@ body {
   @apply max-w-7xl mx-auto;
 }
 
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.025;
-  z-index: 1;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+/* Noise overlay removed for performance — feTurbulence SVG filters are
+   expensive to repaint on scroll, especially on mobile GPUs. */
 
 .card-hover {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;

@@ -12,20 +12,20 @@ export default function Hero() {
 
       {/* Glow orbs */}
       <motion.div
-        className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-gold/10 blur-[120px] animate-float"
+        className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-gold/10 blur-[80px] animate-float"
       />
       <motion.div
-        className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full bg-emerald/10 blur-[120px] animate-float"
+        className="hidden sm:block absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full bg-emerald/10 blur-[70px] animate-float"
         style={{ animationDelay: "2s" }}
       />
       <motion.div
-        className="absolute bottom-0 left-1/3 w-[450px] h-[450px] rounded-full bg-royal/15 blur-[130px] animate-float"
+        className="hidden sm:block absolute bottom-0 left-1/3 w-[450px] h-[450px] rounded-full bg-royal/15 blur-[80px] animate-float"
         style={{ animationDelay: "4s" }}
       />
 
       {/* Engineering / global-trade inspired line art */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-[0.15]"
+        className="hidden sm:block absolute inset-0 w-full h-full opacity-[0.15]"
         viewBox="0 0 1440 900"
         fill="none"
         preserveAspectRatio="xMidYMid slice"
