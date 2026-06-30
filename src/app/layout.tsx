@@ -104,7 +104,6 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
-        <div className="noise-overlay" />
         <LoadingScreen />
         <ScrollProgress />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
