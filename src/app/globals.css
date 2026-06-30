@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 25% 4%;
+  --foreground: 0 0% 96%;
+}
+
+* {
+  scroll-behavior: auto;
+}
+
+html.lenis {
+  height: auto;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink-950 text-white antialiased;
+  font-feature-settings: "ss01", "ss02";
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37, #9c7a22);
+  border-radius: 8px;
+}
+
+.glass {
+  background: rgba(16, 20, 27, 0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(10, 13, 18, 0.75);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f1d98b 0%, #d4af37 45%, #9c7a22 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #1fa37a 0%, #0e6b4f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-px {
+  @apply px-6 sm:px-10 lg:px-20;
+}
+
+.container-prose {
+  @apply max-w-7xl mx-auto;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 20px 60px -10px rgba(212, 175, 55, 0.15);
+}
+
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
